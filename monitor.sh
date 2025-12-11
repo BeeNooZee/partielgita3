@@ -1,4 +1,5 @@
 
+
 #!/bin/sh
 
 echo "----- MONITORING -----"
@@ -11,3 +12,7 @@ echo "CPU Usage: $cpu_usage%"
 # RAM
 ram_usa=$(free | awk '/Mem:/ {printf("%.2f"), $3/$2 * 100}')
 echo "RAM Usage: $ram_usage%"
+
+# DISK
+disk_usage=$(df / | awk 'NR==2 {print $5}')
+echo "Disk Usage: $disk_usage"
